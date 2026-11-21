@@ -35,16 +35,11 @@ Kept and relabeled: dashboard chrome, customer list + detail sheet, inventory li
 
 ## Icon
 
-Drawn the same way as North Pole’s current icon (`northpole/icon-options/ref1/gen.py`): hand-authored SVG, rendered with cairosvg, same navy sky, gold 4-point star, sparkles, and snowy mound.
+The live icon is Nick’s snowman (red hat and scarf, holding a rainbow shaved-ice cup, gold star on a navy sky). The original rounded-tile art is `icons/nick-snowman-original.png`. It is converted to a full-bleed square (`icons/nick-snowman-fullbleed.png`) so iOS can apply its own mask; the maskable variant adds padding.
 
-Options are in `icons/`:
+Earlier SVG options A–C (a snow globe in North Pole’s art style) are still in `icons/` for reference, but they are not used by the app.
 
-- `option-A-classic.png` — gold stand
-- `option-B-bold.png` — larger globe and snowman
-- **`option-C-stripe-base.png` (chosen)** — candy-stripe stand so it feels like the same company made both icons
-- `comparison.png` — North Pole’s icon next to A, B, and C
-
-The live app uses option C (`apple-touch-icon.png` 180, `icon-192.png`, `icon-512.png`, `icon-maskable-512.png`). Regenerate with `python3 tools/gen_icon.py`.
+App files: `apple-touch-icon.png` (180), `icon-192.png`, `icon-512.png`, `icon-maskable-512.png`, plus `favicon-32.png` / `favicon.ico`.
 
 ## Data and a free hookup later
 
@@ -70,4 +65,4 @@ python3 -m http.server 8080 --directory app
 
 Add to an iPhone home screen from Safari: Share → Add to Home Screen. Name: **South Pole**.
 
-Cache bust: bump the service worker name in `sw.js` (`southpole-v1` today) when shipping a visible change, then close and reopen the home-screen app.
+Cache bust: bump the service worker name in `sw.js` (`southpole-v2` today) when shipping a visible change, then close and reopen the home-screen app.

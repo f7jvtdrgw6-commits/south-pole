@@ -29,7 +29,7 @@ Lights-only pieces were not carried over:
 - Wreath / bow inventory and wreath passes
 - Lighting quotes, lead pipeline, Jobber job materials
 - Rebooking / churn / LTV-for-installs tiles
-- North Pole’s Cloudflare Access, D1, R2, VAPID keys, and all live tokens
+- North Pole’s hosting account, database, and all live tokens
 
 Kept and relabeled: dashboard chrome, customer list + detail sheet, inventory list, Meta ads tiles, settings drawer, staff and tasks shells.
 
@@ -56,7 +56,7 @@ When Nick wants live data, a free path that stays off North Pole’s account:
 
 1. Re-export the coupon sheets (and later Square / Meta) into the box.
 2. Publish aggregates — and any customer PII only inside an encrypted `data.enc.json`, like Scoop — then push to this repo.
-3. Optional later: a separate free-tier Cloudflare Pages + D1 project **named `south-pole`**, never the North Pole project, database, or tokens.
+3. Optional later: a separate free-tier Cloudflare Pages project named `south-pole`, never North Pole’s project, database, or tokens.
 
 Push notifications would also need a free web-push endpoint; they are not wired in this build.
 

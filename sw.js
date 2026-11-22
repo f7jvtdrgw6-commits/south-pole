@@ -1,4 +1,4 @@
-const C='southpole-v2';
+const C='southpole-v3';
 const SHELL=['./','index.html','manifest.json','data.js','app.js','icon-192.png','icon-512.png','apple-touch-icon.png','icon-maskable-512.png','favicon-32.png','favicon.ico'];
 self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(C).then(c=>c.addAll(SHELL.map(u=>new Request(u,{cache:'reload'})))).catch(()=>{}))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==C).map(x=>caches.delete(x)))).then(()=>self.clients.claim()))});

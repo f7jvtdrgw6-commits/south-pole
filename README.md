@@ -41,6 +41,16 @@ Earlier SVG options A–C (a snow globe in North Pole’s art style) are still i
 
 App files: `apple-touch-icon.png` (180), `icon-192.png`, `icon-512.png`, `icon-maskable-512.png`, plus `favicon-32.png` / `favicon.ico`.
 
+
+## Themes
+
+The app ships two looks that share the same layout, spacing and components. Switch with a body/html class or a query param:
+
+- Default / Theme A (icy blue and white): https://f7jvtdrgw6-commits.github.io/south-pole/ or `?theme=a`
+- Theme B (mint and glacier): https://f7jvtdrgw6-commits.github.io/south-pole/?theme=b
+
+Theme A uses soft snowflake accents at the top. Theme B uses a subtle mint gradient header and a snow-dust texture in that same slot. Settings › Look can switch between them on the phone.
+
 ## Data and a free hookup later
 
 `data.js` is a static example snapshot (the numbers and abbreviated names from the South Pole mockups). It is not live Square, Meta, or coupon-sheet data.
@@ -65,4 +75,4 @@ python3 -m http.server 8080 --directory app
 
 Add to an iPhone home screen from Safari: Share → Add to Home Screen. Name: **South Pole**.
 
-Cache bust: bump the service worker name in `sw.js` (`southpole-v2` today) when shipping a visible change, then close and reopen the home-screen app.
+Cache bust: bump the service worker name in `sw.js` (`southpole-v3` today) when shipping a visible change, then close and reopen the home-screen app.

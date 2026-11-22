@@ -1,16 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
-<script>(function(){var m=/[?&]theme=([a-j])(?:&|$)/i.exec(location.search);var k=(m&&m[1]||'a').toLowerCase();var h=document.documentElement;['a','b','c','d','e','f','g','h','i','j'].forEach(function(x){h.classList.remove('theme-'+x)});h.classList.add('theme-'+k);h.setAttribute('data-theme',k);})();</script>
+<script>(function(){var keys=['a','b','c','d','e','f','g','h','i','j'];var KEY='sp-theme-v5';var m=/[?&]theme=([a-j])(?:&|$)/i.exec(location.search);var k=m&&m[1]?m[1].toLowerCase():'';try{var old=localStorage.getItem('sp-theme')||localStorage.getItem('southpole-theme');if(old){if(old!=='a'&&keys.indexOf(old)>=0&&!localStorage.getItem(KEY))localStorage.setItem(KEY,old);localStorage.removeItem('sp-theme');localStorage.removeItem('southpole-theme');}if(k)localStorage.setItem(KEY,k);else k=localStorage.getItem(KEY)||'';}catch(e){}if(keys.indexOf(k)<0)k='c';var h=document.documentElement;keys.forEach(function(x){h.classList.remove('theme-'+x)});h.classList.add('theme-'+k);h.setAttribute('data-theme',k);})();</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="South Pole">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="theme-color" content="#07141f">
+<meta name="theme-color" content="#140c12">
 <meta name="color-scheme" content="dark">
-<script>(function(){var colors={a:'#07141f',b:'#071614',c:'#140c12',d:'#071428',e:'#0d0f14',f:'#161412',g:'#1a0e1c',h:'#03061a',i:'#09090b',j:'#e8f3fb'};var k=document.documentElement.getAttribute('data-theme')||'a';var el=document.querySelector('meta[name="theme-color"]');if(el)el.setAttribute('content',colors[k]||colors.a);var cs=document.querySelector('meta[name="color-scheme"]');if(cs)cs.setAttribute('content',k==='j'?'light':'dark');var sb=document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]');if(sb)sb.setAttribute('content',k==='j'?'default':'black-translucent');})();</script>
+<script>(function(){var colors={a:'#07141f',b:'#071614',c:'#140c12',d:'#071428',e:'#0d0f14',f:'#161412',g:'#1a0e1c',h:'#03061a',i:'#09090b',j:'#e8f3fb'};var k=document.documentElement.getAttribute('data-theme')||'c';var el=document.querySelector('meta[name="theme-color"]');if(el)el.setAttribute('content',colors[k]||colors.c);var cs=document.querySelector('meta[name="color-scheme"]');if(cs)cs.setAttribute('content',k==='j'?'light':'dark');var sb=document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]');if(sb)sb.setAttribute('content',k==='j'?'default':'black-translucent');})();</script>
 <meta name="robots" content="noindex,nofollow">
 <title>South Pole</title>
 <link rel="manifest" href="manifest.json">
@@ -22,7 +22,27 @@
 
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);font-family:-apple-system,"SF Pro Text",Inter,Arial,sans-serif;color:var(--text);margin:0}
-:root,html.theme-a{
+:root{
+  --row-line:rgba(255,255,255,.06);
+  --seg-bg:rgba(255,255,255,.07);
+  --seg-on:rgba(255,255,255,.16);
+  --search-icon:rgba(235,235,245,.5);
+  --search-ph:rgba(235,235,245,.4);
+  --search-focus:rgba(255,255,255,.12);
+  --search-btn:rgba(235,235,245,.6);
+  --muted-num:rgba(235,235,245,.5);
+  --tab-shadow:inset 0 .5px 0 rgba(255,255,255,.16),0 8px 30px rgba(0,0,0,.45);
+  --btn-fg:#fff;
+  --np-surface:var(--surface);--np-card:var(--card);--np-card-press:var(--card-press);--np-line:var(--line);
+  --np-text:var(--text);--np-sub:var(--sub);--np-dim:var(--dim);
+  --np-gold:var(--accent);--np-gold-bg:var(--accent-bg);
+  --np-red:var(--red);--np-red-bg:var(--red-bg);
+  --np-green:var(--green);--np-green-bg:var(--green-bg);
+  --np-blue:var(--blue);--np-blue-bg:var(--blue-bg);
+  --np-steel:var(--steel);--np-steel-bg:var(--steel-bg);
+  --np-grey:var(--grey);--np-grey-bg:var(--grey-bg);
+}
+html.theme-a{
   --bg:#07141f;
   --surface:#0e1e2c;
   --card:rgba(186,220,255,.07);
@@ -53,25 +73,6 @@ body{background:var(--bg);font-family:-apple-system,"SF Pro Text",Inter,Arial,sa
   --theme-color:#07141f;
   --header-glow:radial-gradient(120vmax 80vh at 70% -15%,#1a4a6e 0%,#0c2438 42%,#07141f 100%);
   --app-bg:var(--header-glow);
-
-  --row-line:rgba(255,255,255,.06);
-  --seg-bg:rgba(255,255,255,.07);
-  --seg-on:rgba(255,255,255,.16);
-  --search-icon:rgba(235,235,245,.5);
-  --search-ph:rgba(235,235,245,.4);
-  --search-focus:rgba(255,255,255,.12);
-  --search-btn:rgba(235,235,245,.6);
-  --muted-num:rgba(235,235,245,.5);
-  --tab-shadow:inset 0 .5px 0 rgba(255,255,255,.16),0 8px 30px rgba(0,0,0,.45);
-  --btn-fg:#fff;
-  --np-surface:var(--surface);--np-card:var(--card);--np-card-press:var(--card-press);--np-line:var(--line);
-  --np-text:var(--text);--np-sub:var(--sub);--np-dim:var(--dim);
-  --np-gold:var(--accent);--np-gold-bg:var(--accent-bg);
-  --np-red:var(--red);--np-red-bg:var(--red-bg);
-  --np-green:var(--green);--np-green-bg:var(--green-bg);
-  --np-blue:var(--blue);--np-blue-bg:var(--blue-bg);
-  --np-steel:var(--steel);--np-steel-bg:var(--steel-bg);
-  --np-grey:var(--grey);--np-grey-bg:var(--grey-bg);
 }
 html.theme-b{
   --bg:#071614;
@@ -105,7 +106,7 @@ html.theme-b{
   --header-glow:linear-gradient(180deg,rgba(90,200,170,.22) 0%,rgba(20,60,54,.12) 38%,transparent 70%),radial-gradient(120vmax 80vh at 50% -12%,#1c4a44 0%,#0e2a28 40%,#071614 100%);
   --app-bg:var(--header-glow);
 }
-html.theme-c{
+:root,html.theme-c{
   --bg:#140c12;
   --surface:#1c1218;
   --card:rgba(255,180,200,.08);

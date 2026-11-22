@@ -34,12 +34,14 @@ const THEMES = [
 const THEME_KEYS = THEMES.map(t => t.k);
 function currentTheme(){
   const k = document.documentElement.getAttribute('data-theme');
-  return THEME_KEYS.includes(k) ? k : 'a';
+  return THEME_KEYS.includes(k) ? k : 'c';
 }
+const THEME_STORE = 'sp-theme-v5';
 function setTheme(k){
-  k = THEME_KEYS.includes(k) ? k : 'a';
+  k = THEME_KEYS.includes(k) ? k : 'c';
+  try { localStorage.setItem(THEME_STORE, k); } catch (e) {}
   const u = new URL(location.href);
-  if (k === 'a') u.searchParams.delete('theme'); else u.searchParams.set('theme', k);
+  if (k === 'c') u.searchParams.delete('theme'); else u.searchParams.set('theme', k);
   location.replace(u.pathname + u.search + u.hash);
 }
 

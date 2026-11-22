@@ -45,11 +45,11 @@ App files: `apple-touch-icon.png` (180), `icon-192.png`, `icon-512.png`, `icon-m
 
 ## Themes
 
-The app ships ten looks that share the same layout, spacing and components. Switch with an `html.theme-*` class, Settings › Look, or a query param (`?theme=a` through `?theme=j`). Theme A is the default.
+The app ships ten looks that share the same layout, spacing and components. Switch with an `html.theme-*` class, Settings › Look, or a query param (`?theme=a` through `?theme=j`). Theme 1 · Rainbow Syrup (`?theme=c`) is the default.
 
-- A · Icy blue — https://f7jvtdrgw6-commits.github.io/south-pole/ or `?theme=a`
-- B · Mint & glacier — https://f7jvtdrgw6-commits.github.io/south-pole/?theme=b
-- 1 · Rainbow Syrup — `?theme=c`
+- 1 · Rainbow Syrup (default) — https://f7jvtdrgw6-commits.github.io/south-pole/ or `?theme=c`
+- A · Icy blue — `?theme=a`
+- B · Mint & glacier — `?theme=b`
 - 2 · Icon Match — `?theme=d`
 - 3 · North Pole Classic — `?theme=e`
 - 4 · Summer Stand — `?theme=f`
@@ -85,4 +85,4 @@ python3 -m http.server 8080 --directory app
 
 Add to an iPhone home screen from Safari: Share → Add to Home Screen. Name: **South Pole**.
 
-Cache bust: bump the service worker name in `sw.js` (`southpole-v4` today) when shipping a visible change, then close and reopen the home-screen app.
+Cache bust: bump the service worker name in `sw.js` (`southpole-v5` today) when shipping a visible change, then close and reopen the home-screen app.

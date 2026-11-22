@@ -54,9 +54,14 @@ function nav() {
     `<button class="${k===cur && !sub ? 'on' : ''}" onclick="go('${k}')" aria-label="${l}"><svg viewBox="0 0 24 24">${I[k]}</svg>${l}</button>`
   ).join('');
 }
+function scrollMainToTop(){
+  const sc = $('#v');
+  if (sc) sc.scrollTop = 0;
+  try { window.scrollTo(0, 0); } catch (e) {}
+}
 function go(k) {
   cur = k; sub = null; closeSheet(); closeSettings(true); nav(); render();
-  const sc = $('#v'); if (sc) sc.scrollTop = 0;
+  scrollMainToTop();
   try { history.replaceState(null, '', '#' + k); } catch (e) {}
 }
 function setStore(k) { store = k; render(); }
@@ -384,7 +389,7 @@ function closeSettings(instant) {
   const n = document.getElementById('cnav');
   if (n) n.classList.remove('on');
 }
-function openSub(k) { sub = k; closeSettings(); nav(); render(); const sc=$('#v'); if(sc) sc.scrollTop=0; }
+function openSub(k) { sub = k; closeSettings(); nav(); render(); scrollMainToTop(); }
 
 function openCustom() {
   const body = `<div class="bd in" onclick="if(event.target===this)closeSheet()">

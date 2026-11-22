@@ -85,4 +85,4 @@ python3 -m http.server 8080 --directory app
 
 Add to an iPhone home screen from Safari: Share → Add to Home Screen. Name: **South Pole**.
 
-Cache bust: bump the service worker name in `sw.js` (`southpole-v6` today) when shipping a visible change, then close and reopen the home-screen app.
+Cache bust: bump the service worker name in `sw.js` (`southpole-v7` today) when shipping a visible change, then close and reopen the home-screen app.

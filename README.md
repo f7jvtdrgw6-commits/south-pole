@@ -42,14 +42,24 @@ Earlier SVG options A–C (a snow globe in North Pole’s art style) are still i
 App files: `apple-touch-icon.png` (180), `icon-192.png`, `icon-512.png`, `icon-maskable-512.png`, plus `favicon-32.png` / `favicon.ico`.
 
 
+
 ## Themes
 
-The app ships two looks that share the same layout, spacing and components. Switch with a body/html class or a query param:
+The app ships ten looks that share the same layout, spacing and components. Switch with an `html.theme-*` class, Settings › Look, or a query param (`?theme=a` through `?theme=j`). Theme A is the default.
 
-- Default / Theme A (icy blue and white): https://f7jvtdrgw6-commits.github.io/south-pole/ or `?theme=a`
-- Theme B (mint and glacier): https://f7jvtdrgw6-commits.github.io/south-pole/?theme=b
+- A · Icy blue — https://f7jvtdrgw6-commits.github.io/south-pole/ or `?theme=a`
+- B · Mint & glacier — https://f7jvtdrgw6-commits.github.io/south-pole/?theme=b
+- 1 · Rainbow Syrup — `?theme=c`
+- 2 · Icon Match — `?theme=d`
+- 3 · North Pole Classic — `?theme=e`
+- 4 · Summer Stand — `?theme=f`
+- 5 · Cotton Candy — `?theme=g`
+- 6 · Blue Raspberry — `?theme=h`
+- 7 · Midnight Mono — `?theme=i`
+- 8 · Light Mode Snow — `?theme=j`
 
-Theme A uses soft snowflake accents at the top. Theme B uses a subtle mint gradient header and a snow-dust texture in that same slot. Settings › Look can switch between them on the phone.
+Each theme has its own top-decoration treatment in the slot that used to hold the C9 light string (snowflakes, snow-dust, syrup drips, stars, a gold hairline, fruit, cotton-candy clouds, a neon bar, a red tick, or icy flakes on white).
+
 
 ## Data and a free hookup later
 
@@ -75,4 +85,4 @@ python3 -m http.server 8080 --directory app
 
 Add to an iPhone home screen from Safari: Share → Add to Home Screen. Name: **South Pole**.
 
-Cache bust: bump the service worker name in `sw.js` (`southpole-v3` today) when shipping a visible change, then close and reopen the home-screen app.
+Cache bust: bump the service worker name in `sw.js` (`southpole-v4` today) when shipping a visible change, then close and reopen the home-screen app.

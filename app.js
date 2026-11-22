@@ -18,14 +18,30 @@ const STORE_OPTS = [['all','All'],['stp','St. Peters'],['ev','Ellisville']];
 const RANGE_OPTS = [['7d','7D'],['30d','30D'],['ytd','YTD'],['custom','Custom']];
 const GEAR = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0 1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1-.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l.1-.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>';
 
-function currentTheme(){return (document.documentElement.getAttribute('data-theme')==='b')?'b':'a'}
-function setTheme(k){
-  k=(k==='b')?'b':'a';
-  const u=new URL(location.href);
-  if(k==='a') u.searchParams.delete('theme'); else u.searchParams.set('theme','b');
-  location.replace(u.pathname+u.search+u.hash);
-}
 
+const THEMES = [
+  {k:'a', n:'Icy blue', num:'A'},
+  {k:'b', n:'Mint & glacier', num:'B'},
+  {k:'c', n:'Rainbow Syrup', num:'1'},
+  {k:'d', n:'Icon Match', num:'2'},
+  {k:'e', n:'North Pole Classic', num:'3'},
+  {k:'f', n:'Summer Stand', num:'4'},
+  {k:'g', n:'Cotton Candy', num:'5'},
+  {k:'h', n:'Blue Raspberry', num:'6'},
+  {k:'i', n:'Midnight Mono', num:'7'},
+  {k:'j', n:'Light Mode Snow', num:'8'}
+];
+const THEME_KEYS = THEMES.map(t => t.k);
+function currentTheme(){
+  const k = document.documentElement.getAttribute('data-theme');
+  return THEME_KEYS.includes(k) ? k : 'a';
+}
+function setTheme(k){
+  k = THEME_KEYS.includes(k) ? k : 'a';
+  const u = new URL(location.href);
+  if (k === 'a') u.searchParams.delete('theme'); else u.searchParams.set('theme', k);
+  location.replace(u.pathname + u.search + u.hash);
+}
 
 let cur = 'home', store = 'all', range = '30d', cq = '', cfilt = 'all', icat = 'all';
 let customFrom = '2026-10-01', customTo = '2026-10-24';
@@ -352,8 +368,7 @@ function openSettings() {
         <button type="button" onclick="openSub('staff')"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 19c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14c2.8 0 5 1.8 5 4.5"/></svg>Staff<span>›</span></button>
         <button type="button" onclick="openSub('tasks')"><svg viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11"/><path d="M4 6h.01M4 12h.01M4 18h.01"/></svg>Tasks<span>›</span></button>
         <div class="cns">Look</div>
-        <button type="button" onclick="setTheme('a')"><svg viewBox="0 0 24 24"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5z"/><path d="M5 16l.8 2.2L8 19l-2.2.8L5 22l-.8-2.2L2 19l2.2-.8z"/></svg>Icy blue${currentTheme()==='a'?'<span>✓</span>':'<span></span>'}</button>
-        <button type="button" onclick="setTheme('b')"><svg viewBox="0 0 24 24"><path d="M4 16c4-1 7-5 8-9 1 4 4 8 8 9-3 3-13 3-16 0z"/></svg>Mint &amp; glacier${currentTheme()==='b'?'<span>✓</span>':'<span></span>'}</button>
+        ${THEMES.map(t => `<button type="button" onclick="setTheme('${t.k}')"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/></svg>${t.num} · ${t.n}${currentTheme()===t.k?'<span>✓</span>':'<span></span>'}</button>`).join('')}
         <div class="cns">About</div>
         <div class="npnm">South Pole is the Kiraboos hub, the sister app to North Pole. This build uses example data only — no live Square, Meta, or coupon sheets are connected yet.</div>
         <div class="cns">Home screen</div>
